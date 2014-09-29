@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var myBreedLabel: UILabel!
     
+    var myTigers:[tiger] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,6 +30,8 @@ class ViewController: UIViewController {
         myTiger.name = "Tiggers"
         myTiger.breed = "African"
         myTiger.image = UIImage(named: "BengalTiger.jpg")
+        
+        myTigers.append(myTiger)
         
         println( "My Tigers name is  \(myTiger.name) and its age is \(myTiger.age)and its breed is \(myTiger.breed) and its image is \( myTiger.image)" )
         
@@ -58,6 +62,10 @@ class ViewController: UIViewController {
         fourthTiger.breed = "Siberian"
         fourthTiger.image = UIImage(named: "SiberianTiger.jpg")
         
+         myTigers += [secondTiger, thirdTiger, fourthTiger]
+        
+        println(" my tiger name is \(myTigers)")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +75,23 @@ class ViewController: UIViewController {
 
 
     @IBAction func myNextAction(sender: UIBarButtonItem) {
+        
+      let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+      let tiger = myTigers[randomIndex]
+        
+        /*myImageView.image = tiger.image
+        myNameLabel.text = tiger.name
+        myAgeLable.text = "\(tiger.age)"
+        myBreedLabel.text = tiger.breed*/
+        
+        UIView.transitionWithView(self.view, duration: 2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            self.myImageView.image = tiger.image
+            self.myNameLabel.text = tiger.name
+            self.myAgeLable.text = "\(tiger.age)"
+            self.myBreedLabel.text = tiger.breed
+            }, completion: { (finished: Bool) -> () in
+        })
+        
     }
 
 }
