@@ -27,5 +27,27 @@ struct tiger {
             self.chuff()
             
         }
-    }
+        
+         }
+        
+        func randomFact() -> String {
+            
+            let randomNumber = Int(arc4random_uniform(UInt32(3)))
+            
+            var randomFact:String
+            
+            if randomNumber == 0 {
+                randomFact = "This is huge tiger and respect it"
+            }
+            else if randomNumber == 1 {
+                randomFact = " This is hunting tiger and its awesome"
+            }
+            
+            else {
+                randomFact = "This is the last Tiger"
+            }
+            
+            return randomFact
+        }
+   
 }
