@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var myBreedLabel: UILabel!
     
+    var currentIndex = 0
+    
     var myTigers:[tiger] = []
     
     override func viewDidLoad() {
@@ -30,6 +32,8 @@ class ViewController: UIViewController {
         myTiger.name = "Tiggers"
         myTiger.breed = "African"
         myTiger.image = UIImage(named: "BengalTiger.jpg")
+        
+        myTiger.chuff()
         
         myTigers.append(myTiger)
         
@@ -62,7 +66,7 @@ class ViewController: UIViewController {
         fourthTiger.breed = "Siberian"
         fourthTiger.image = UIImage(named: "SiberianTiger.jpg")
         
-         myTigers += [secondTiger, thirdTiger, fourthTiger]
+         self.myTigers += [secondTiger, thirdTiger, fourthTiger]
         
         println(" my tiger name is \(myTigers)")
         
@@ -76,8 +80,13 @@ class ViewController: UIViewController {
 
     @IBAction func myNextAction(sender: UIBarButtonItem) {
         
-      let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
-      let tiger = myTigers[randomIndex]
+      var randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+      let tiger = self.myTigers[randomIndex]
+        
+        while self.currentIndex == randomIndex {
+            randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+        }
+        self.currentIndex = randomIndex
         
         /*myImageView.image = tiger.image
         myNameLabel.text = tiger.name
