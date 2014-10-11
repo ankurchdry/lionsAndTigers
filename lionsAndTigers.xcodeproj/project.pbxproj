@@ -22,6 +22,7 @@
 		5D1ADF4719D918290012923C /* Lioness.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5D1ADF3F19D918290012923C /* Lioness.jpeg */; };
 		5D1ADF4819D918290012923C /* MalayanTiger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5D1ADF4019D918290012923C /* MalayanTiger.jpg */; };
 		5D1ADF4919D918290012923C /* SiberianTiger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5D1ADF4119D918290012923C /* SiberianTiger.jpg */; };
+		5D3A649019E8D5E900EF52FD /* Lion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A648F19E8D5E900EF52FD /* Lion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		5D1ADF3F19D918290012923C /* Lioness.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Lioness.jpeg; sourceTree = "<group>"; };
 		5D1ADF4019D918290012923C /* MalayanTiger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MalayanTiger.jpg; sourceTree = "<group>"; };
 		5D1ADF4119D918290012923C /* SiberianTiger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SiberianTiger.jpg; sourceTree = "<group>"; };
+		5D3A648F19E8D5E900EF52FD /* Lion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				5D1ADF3719D90DFA0012923C /* Tigers.swift */,
+				5D3A648F19E8D5E900EF52FD /* Lion.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				5D1ADF1919D908050012923C /* ViewController.swift in Sources */,
 				5D1ADF3819D90DFA0012923C /* Tigers.swift in Sources */,
 				5D1ADF1719D908050012923C /* AppDelegate.swift in Sources */,
+				5D3A649019E8D5E900EF52FD /* Lion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +461,7 @@
 				5D1ADF3219D908050012923C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D1ADF3319D908050012923C /* Build configuration list for PBXNativeTarget "lionsAndTigersTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +470,7 @@
 				5D1ADF3519D908050012923C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

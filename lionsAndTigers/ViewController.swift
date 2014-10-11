@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     var currentIndex = 0
     
     var myTigers:[tiger] = []
+    var lion:[Lion] = []
+    
+    var currentAnimal = (Animal: "Tiger", animalIndex: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +77,21 @@ class ViewController: UIViewController {
         println(" my tiger name is \(myTigers)")
         
         
+        var lion = Lion()
+        lion.age = 4
+        lion.isMaleAplha = false
+        lion.image = UIImage(named: "Lion.jpg")
+        lion.name = "Mufasa"
+        lion.subSpecies = "first subspecies"
+        
+        var lioness = Lion()
+        lioness.age = 4
+        lioness.isMaleAplha = false
+        lioness.image = UIImage(named: "Lioness.jpeg")
+        lioness.name = "Mufasa"
+        lioness.subSpecies = "second subspecies"
+        
+        self.lion += [lion, lioness]
         
     }
 
@@ -85,13 +103,41 @@ class ViewController: UIViewController {
 
     @IBAction func myNextAction(sender: UIBarButtonItem) {
         
-      var randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
-      let tiger = self.myTigers[randomIndex]
+        updateAnimal()
+        updateView()
+        
+    }
+    
+    
+    func updateAnimal () {
+        
+        switch currentAnimal {
+            
+        case ("Tiger", _):
+           let randomIndex = Int(arc4random_uniform(UInt32(lion.count)))
+            currentAnimal  = ("Lion", randomIndex)
+            
+            println("Calling Tiger \(randomIndex)")
+         
+        default :
+            let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+            currentAnimal  = ("Tiger", randomIndex)
+            
+            println("Calling lion \(randomIndex)")
+            
+        }
+        
+    }
+    
+    func updateView () {
+        
+      /*  var randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+        let tiger = self.myTigers[randomIndex]
         
         while self.currentIndex == randomIndex {
             randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
         }
-        self.currentIndex = randomIndex
+        self.currentIndex = randomIndex */
         
         /*myImageView.image = tiger.image
         myNameLabel.text = tiger.name
@@ -99,15 +145,43 @@ class ViewController: UIViewController {
         myBreedLabel.text = tiger.breed*/
         
         UIView.transitionWithView(self.view, duration: 2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
-            self.myImageView.image = tiger.image
+           /* self.myImageView.image = tiger.image
             self.myNameLabel.text = tiger.name
             self.myAgeLable.text = "\(tiger.age)"
             self.myBreedLabel.text = tiger.breed
-            self.tigerFact.text = tiger.randomFact()
+            self.tigerFact.text = tiger.randomFact()*/
+            
+            println("what is the animla name \(self.currentAnimal.Animal)")
+            
+            if self.currentAnimal.Animal == "Tiger" {
+                let tiger = self.myTigers[self.currentAnimal.animalIndex]
+                self.myImageView.image = tiger.image
+                self.myNameLabel.text = tiger.name
+                self.myAgeLable.text = "\(tiger.age)"
+                self.myBreedLabel.text = tiger.breed
+                self.tigerFact.text = tiger.randomFact()
+                
+                 println("Calling if Tiger \(tiger.image)")
+            }
+            else if  self.currentAnimal.Animal == "Lion" {
+                let lion = self.lion[self.currentAnimal.animalIndex]
+                self.myImageView.image = lion.image
+                self.myNameLabel.text = lion.name
+                self.myAgeLable.text = "\(lion.age)"
+                self.myBreedLabel.text = lion.subSpecies
+                
+                println("Calling if lion \(lion.image)")
+                
+            }
+            self.tigerFact.hidden = false
+            
+            
             }, completion: { (finished: Bool) -> () in
         })
+
         
     }
+    
 
 }
 
