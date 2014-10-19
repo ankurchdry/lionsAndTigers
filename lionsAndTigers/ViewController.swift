@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         
         var lion = Lion()
         lion.age = 4
-        lion.isMaleAplha = false
+        lion.isMaleAplha = true
         lion.image = UIImage(named: "Lion.jpg")
         lion.name = "Mufasa"
         lion.subSpecies = "first subspecies"
@@ -169,6 +169,7 @@ class ViewController: UIViewController {
                 self.myNameLabel.text = lion.name
                 self.myAgeLable.text = "\(lion.age)"
                 self.myBreedLabel.text = lion.subSpecies
+                self.tigerFact.text = lion.randomFact()
                 
                 println("Calling if lion \(lion.image)")
                 
