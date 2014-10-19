@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     var myTigers:[tiger] = []
     var lion:[Lion] = []
+    var lionCub:[LionCub] = []
     
     var currentAnimal = (Animal: "Tiger", animalIndex: 0)
     
@@ -93,6 +94,20 @@ class ViewController: UIViewController {
         
         self.lion += [lion, lioness]
         
+        var lionCub = LionCub()
+        lionCub.age = 1
+        lionCub.name = "Simba"
+        lionCub.isMaleAplha = true
+        lionCub.image = UIImage(named: "LionCub1.jpg")
+        lionCub.subSpecies = "Masai"
+        
+        var femaleLionCub = LionCub()
+        femaleLionCub.age = 1
+        femaleLionCub.name = "Milla"
+        femaleLionCub.image = UIImage(named: "LionCub2.jpeg")
+        femaleLionCub.subSpecies = "Velarian"
+        
+        self.lionCub += [lionCub, femaleLionCub]
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,6 +131,12 @@ class ViewController: UIViewController {
         case ("Tiger", _):
            let randomIndex = Int(arc4random_uniform(UInt32(lion.count)))
             currentAnimal  = ("Lion", randomIndex)
+            
+            println("Calling Tiger \(randomIndex)")
+            
+        case ("Lion", _):
+            let randomIndex = Int(arc4random_uniform(UInt32(lion.count)))
+            currentAnimal  = ("LionCub", randomIndex)
             
             println("Calling Tiger \(randomIndex)")
          
@@ -170,8 +191,21 @@ class ViewController: UIViewController {
                 self.myAgeLable.text = "\(lion.age)"
                 self.myBreedLabel.text = lion.subSpecies
                 self.tigerFact.text = lion.randomFact()
+             println("Calling if lion \(lion.image)")
                 
-                println("Calling if lion \(lion.image)")
+            }
+                
+                else if  self.currentAnimal.Animal == "LionCub" {
+                    let lionCub = self.lionCub[self.currentAnimal.animalIndex]
+                    self.myImageView.image = lionCub.image
+                    self.myNameLabel.text = lionCub.name
+                    self.myAgeLable.text = "\(lionCub.age)"
+                    self.myBreedLabel.text = lionCub.subSpecies
+                    self.tigerFact.text = lionCub.randomFact()
+                    
+                println("Calling if lioncub \(lionCub.image)")
+                
+               
                 
             }
             self.tigerFact.hidden = false
